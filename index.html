@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <!-- These are the DEFAULTS. Every view overwrites title, description,
+         canonical and the OG set at runtime via useHead() in lib.jsx. A
+         crawler that does not execute JavaScript sees only what is here, so
+         what is here has to stand on its own. -->
+    <title>RUMOAR — Nine pieces. One hand.</title>
+    <meta name="description" content="Six objects a man is read by before he speaks — leather, steel, silver and scent, made in three named Indian workshops. Free shipping over ₹2,000, thirty-night trial." />
+    <link rel="canonical" href="https://YOUR-APP.vercel.app/" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0A0A0E" media="(prefers-color-scheme: dark)" />
+
+    <!-- inline SVG favicon: the card. No file to upload, no 404. -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23FFFFFF'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='44' font-weight='700' text-anchor='middle' fill='%23D8232F'%3ER%3C/text%3E%3C/svg%3E" />
+    <link rel="apple-touch-icon" href="/og.png" />
+
+    <meta property="og:title" content="RUMOAR — Nine pieces. One hand." />
+    <meta property="og:description" content="The pieces Indian menswear skipped. Six live, three in fitting." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://YOUR-APP.vercel.app/" />
+    <meta property="og:site_name" content="RUMOAR" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content="https://YOUR-APP.vercel.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="A hand of playing cards, each one a RUMOAR piece" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://YOUR-APP.vercel.app/og.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..700;1,400..700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&display=swap" rel="stylesheet" />
+
+    <style>
+      /* scroll-behavior:smooth must NOT live here — it fights GSAP and makes
+         any scrubbed section stutter. Nav jumps do it in JS instead. */
+      html { background: #FFFFFF; }
+      body { margin: 0; background: #FFFFFF; }
+      /* Held until the intro releases, so the page cannot be scrolled behind
+         the card deck. The class is removed by the app, never by CSS alone —
+         if the app fails to boot, scrolling must still work. */
+      body.intro-lock { overflow: hidden; }
+      @media (prefers-color-scheme: dark) { html, body { background: #FFFFFF; } }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- The no-JS floor. A crawler or a reader-mode browser gets a real
+         paragraph and real links rather than an empty div, and every route is
+         reachable. It is removed the moment React mounts. -->
+    <noscript>
+      <div style="max-width:44rem;margin:12vh auto;padding:0 6vw;font-family:Georgia,serif;line-height:1.6">
+        <h1 style="font-size:2rem">RUMOAR — nine pieces, one hand.</h1>
+        <p>Six objects a man is read by before he speaks: a wallet, a watch, a chain,
+        a pair of frames, a sling and a scent. Made in three named Indian workshops in
+        Chennai, Kolkata and Jaipur. Free shipping over ₹2,000 and thirty nights to
+        decide.</p>
+        <p>This store needs JavaScript to run. Write to hello@rumoar.com and a named
+        person will reply within one working day.</p>
+      </div>
+    </noscript>
+
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
